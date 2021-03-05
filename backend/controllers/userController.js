@@ -12,7 +12,7 @@ const authUser = asyncHandler(async (req, res) => {
   //find user by matching email
   const user = await User.findOne({ email });
 
-  //check if the User exist and match passwords (create method in a User model)
+  //check if the User exist and match passwords (create method in User model)
   if (user && (await user.matchPassword(password))) {
     res.json({
       _id: user.id,
