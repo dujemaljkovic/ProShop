@@ -16,14 +16,17 @@ const protect = asyncHandler(async (req, res, next) => {
 
       req.user = await User.findById(decoded.id).select('-password');
 
-      console.log(decoded);
-
       next();
     } catch (error) {
       console.log(error);
       res.status(401);
       throw new Error('Not authorised, token failed');
     }
+  }
+
+  if (!token) {
+    res.status(401);
+    throw new Error('Not authorized, no token');
   }
 });
 

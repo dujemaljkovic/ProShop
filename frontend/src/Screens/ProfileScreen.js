@@ -6,6 +6,7 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { getUserDetails, updateUserProfile } from '../actions/userActions';
 
+
 const ProfileScreen = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
