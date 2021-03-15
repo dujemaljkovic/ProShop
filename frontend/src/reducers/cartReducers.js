@@ -15,7 +15,7 @@ export const cartReducer = (
       // search in the state.cartItems array
       // for the existence of the specific product
       // that is defined by item (by the action.payload)
-      // if we find a match assign the result to the existItem variable
+      // if we find a match assign the result to the existItem constant
       const existItem = state.cartItems.find((x) => x.product === item.product);
       // if there is already a product matching the item in the state.cartItems array
       if (existItem) {

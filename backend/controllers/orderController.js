@@ -1,4 +1,4 @@
-import Order from '../models/productModel.js';
+import Order from '../models/orderModel.js';
 import asyncHandler from 'express-async-handler';
 
 // @desc  Create new order
@@ -16,8 +16,8 @@ const addOrderItems = asyncHandler(async (req, res) => {
   } = req.body;
 
   if (orderItems && orderItems.length === 0) {
-    res.status(401);
-    throw new Error('No order itmes');
+    res.status(400);
+    throw new Error('No order items');
     return;
   } else {
     const order = new Order({
@@ -30,11 +30,11 @@ const addOrderItems = asyncHandler(async (req, res) => {
       shippingPrice,
       totalPrice,
     });
+
+    const createdOrder = await order.save();
+
+    res.status(201).json(createdOrder);
   }
-
-  const createdOrder = await order.save();
-
-  res.status(201).json(createdOrder);
 });
 
-export default addOrderItems
+export default addOrderItems;
