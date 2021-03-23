@@ -1,26 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-const Rating = ({ value, text, starColor = '#f8e825' }) => {
-  const stars = [1, 2, 3, 4, 5].map((index) => (
-    <i
-      key={index}
-      style={{ color: starColor }}
-      className={
-        value >= index
-          ? 'fas fa-star'
-          : value >= index - 0.5
-          ? 'fas fa-star-half-alt'
-          : 'far fa-star'
-      }
-    ></i>
-  ));
+const Rating = ({ value, text, color }) => {
   return (
     <div className='rating'>
-      <span>{stars}</span> <span>{text && text}</span>
-    </div>
-    /*<div className='rating'>
       <span>
         <i
+          style={{ color }}
           className={
             value >= 1
               ? 'fas fa-star'
@@ -32,6 +17,7 @@ const Rating = ({ value, text, starColor = '#f8e825' }) => {
       </span>
       <span>
         <i
+          style={{ color }}
           className={
             value >= 2
               ? 'fas fa-star'
@@ -43,6 +29,7 @@ const Rating = ({ value, text, starColor = '#f8e825' }) => {
       </span>
       <span>
         <i
+          style={{ color }}
           className={
             value >= 3
               ? 'fas fa-star'
@@ -54,6 +41,7 @@ const Rating = ({ value, text, starColor = '#f8e825' }) => {
       </span>
       <span>
         <i
+          style={{ color }}
           className={
             value >= 4
               ? 'fas fa-star'
@@ -65,6 +53,7 @@ const Rating = ({ value, text, starColor = '#f8e825' }) => {
       </span>
       <span>
         <i
+          style={{ color }}
           className={
             value >= 5
               ? 'fas fa-star'
@@ -75,8 +64,12 @@ const Rating = ({ value, text, starColor = '#f8e825' }) => {
         ></i>
       </span>
       <span>{text && text}</span>
-    </div>*/
-  );
-};
+    </div>
+  )
+}
 
-export default Rating;
+Rating.defaultProps = {
+  color: '#f8e825',
+}
+
+export default Rating

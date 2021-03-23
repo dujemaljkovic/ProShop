@@ -14,7 +14,6 @@ import {
 } from 'react-bootstrap';
 import Rating from '../components/Rating';
 import { listProductDetails } from '../actions/productActions';
-import { addToCart } from '../actions/cartActions';
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
