@@ -17,15 +17,15 @@ const ProductListScreen = ({ history }) => {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
-
   const productDelete = useSelector((state) => state.productDelete);
   const {
     loading: loadingDelete,
     error: errorDelete,
     success: successDelete,
   } = productDelete;
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
 
   const productCreate = useSelector((state) => state.productCreate);
   const {
